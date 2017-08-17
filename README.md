@@ -9,4 +9,4 @@ The BiMat package is required for the functions generate_networks and generate_p
 
 A preprint of the manuscript can be found on BioRxiv: [https://doi.org/10.1101/176628](https://doi.org/10.1101/176628).
 
-This code is archived on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.844919.svg)](https://doi.org/10.5281/zenodo.844919)
+This code is archived on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.844918.svg)](https://doi.org/10.5281/zenodo.844918)
