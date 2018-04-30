@@ -1,0 +1,46 @@
+Notes on using LSA
+Ashley Coenen, 2/8/2018
+
+
+Command line
+
+For basic use
+$ lsa_compute [inputFile] [outputFile]
+
+For some reason LSA defaults to choosing 4 sample timepoints. To force LSA to use all S available timepoints set spotNum=S
+$ lsa_compute -s S [inputFile] [outputFile]
+
+LSA is usually fine guessing the number of replicates but repNum=R can be set manually
+$ lsa_compute -r R [inputFile] [outputFile]
+
+To set maximum allowed delay D set delayLimit=D (default 3)
+$ lsa_compute -d D [inputFile] [outputFile]
+
+To cut down on computation time, set bootstrapping B=0 and permutations P=1
+$ lsa_compute -b 0 -x 1 [inputFile] [outputFile]
+
+computation time ~ (B+P)*F^2*N
+B = bootstrap #
+P = permutation #
+F = # of 'factors' or distinct time series
+N = # of sample timepoints
+
+
+File formats
+
+Input file should be .txt or .csv with rows=variables and columns=time:
+#F\T	t1	t2	t3
+f1
+f2
+f3
+Header row = timepoint labels. May be strings ('t1') or datestrings
+Header column = factor'or variable names
+
+Output files may be specified as .txt or .csv and will have data in columns:
+X   	Y   LS
+f1	f2   -
+f1	f3   -
+Col 1 (X) = 'factor' or variable name 1
+Col 2 (Y) = 'factor' or variable name 2
+Col 3 (LS) = local similarity score
+Col 9 (Delay) = delay index for the LS

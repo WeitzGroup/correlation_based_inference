@@ -1,0 +1,21 @@
+Notes on using SparCC
+Ashley Coenen, 2/8/2018
+
+
+Command line
+
+For basic use
+$ python [SparCC_directory]/SparCC.py [inputFile] -c [outputFile_correlation] -v [outputFile_covariance]
+
+
+File formats
+
+Input file should be .txt or .csv with rows=variables and columns=time:
+OUT_id	1	2	3
+1
+2
+3
+Header row = timepoint labels. Must be integers?
+Header column = OTU labels. Must be integers?
+
+Output files may be specified as .txt or .csv and are matrices of scores.
