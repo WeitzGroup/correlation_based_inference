@@ -24,10 +24,10 @@ AB = {'A','B'};
 
 
 for s = 1:length(S)
-    
+%for s = 1;    
     % load data
     load(sprintf('data/networks/S%d_N1',s));
-    load(sprintf('data/timeseries/delta3/S%d_N1',s));
+    load(sprintf('data/timeseries/delta%d/S%d_N1',deltaID,s));
     load(sprintf('data/results_main/samples/S%d_N1',s));
     load(sprintf('data/results_main/pearson_S%d_N1',s));
     load('data/results_main/analysis_setup');
@@ -58,6 +58,12 @@ for s = 1:length(S)
     make_ax(2,yj)
     semilogy(t,H(:,:,qID),'LineWidth',lw);
     xlim(tlim);
+    if s==2
+        ylim([10^2 10^4.5]);
+    else
+        ylim([10^2.7 10^4.5]);
+    end
+    set(gca,'YTick',10.^(2:5));
     ylabel(sprintf('microbe\ndensity (mL^{-1})'),'FontSize',fs);
     title('time-series','FontSize',fs,'FontWeight','normal');
     set(gca,'LineWidth',lw,'FontSize',fs,'XTick',[]);
@@ -66,6 +72,8 @@ for s = 1:length(S)
     make_ax(2,yj-1)
     semilogy(t,V(:,:,qID),'LineWidth',lw);
     xlim(tlim);
+    ylim([10^5.5 10^7.5]);
+    set(gca,'YTick',10.^(5:7));
     xlabel('time (days)','FontSize',fs);
     ylabel(sprintf('virus\ndensity (mL^{-1})'),'FontSize',fs);
     set(gca,'LineWidth',lw,'FontSize',fs);
